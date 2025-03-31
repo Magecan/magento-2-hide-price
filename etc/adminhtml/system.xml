@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magecan, Inc. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="hide_price" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Hide Price</label>
+            <tab>sales</tab>
+            <resource>Magecan_HidePrice::hideprice</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_groups" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide Price for Selected Customer Group(s)</label>
+                    <source_model>Magecan\HidePrice\Model\Config\Source\CustomerGroupsOptions</source_model>
+                    <comment>Select customer groups for which the price will be hidden.</comment>
+                </field>
+                <field id="hide_price_text" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide Price Text</label>
+                    <comment>Text to display instead of the product price</comment>
+                    <validate>required-entry</validate>
+                </field>
+            </group>   
+        </section>
+    </system>
+</config>
