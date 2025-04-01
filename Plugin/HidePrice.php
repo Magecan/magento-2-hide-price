@@ -19,6 +19,15 @@ class HidePrice
         $this->scopeConfig = $scopeConfig;
     }
 
+	public function afterIsSaleable(\Magento\Catalog\Model\Product $subject, $result)
+	{
+		if (!$this->getShouldHidePrice()) {
+			return $result;
+		}
+
+        return false;
+	}
+
     /**
      * Modify the HTML output after the block renders
      *

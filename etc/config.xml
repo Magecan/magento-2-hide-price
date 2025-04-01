@@ -9,6 +9,7 @@
         <hide_price>
             <General>
                 <enabled>0</enabled>
+                <hide_price_text>Login for Price</hide_price_text>
             </General>
         </hide_price>
     </default>
