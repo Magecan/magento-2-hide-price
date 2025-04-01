@@ -19,6 +19,15 @@ class HidePrice
         $this->scopeConfig = $scopeConfig;
     }
 
+	public function afterGetAttributesUsedForSortBy(\Magento\Catalog\Model\Config $subject, $result)
+	{
+		if ($this->getShouldHidePrice() && is_array($result)) {
+			unset($result['price']);
+		}
+
+		return $result;
+	}
+	
 	public function afterIsSaleable(\Magento\Catalog\Model\Product $subject, $result)
 	{
 		if (!$this->getShouldHidePrice()) {

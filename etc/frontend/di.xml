@@ -6,5 +6,8 @@
 	<type name="Magento\Catalog\Model\Product">
         <plugin name="hide_add_to_cart" type="Magecan\HidePrice\Plugin\HidePrice" />
     </type>
+	<type name="Magento\Catalog\Model\Config">
+        <plugin name="hide_sort_by_price" type="Magecan\HidePrice\Plugin\HidePrice" />
+    </type>
 
 </config>
