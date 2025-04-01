@@ -10,4 +10,7 @@
         <plugin name="hide_sort_by_price" type="Magecan\HidePrice\Plugin\HidePrice" />
     </type>
 
+	<type name="Magento\Catalog\Model\Layer\FilterableAttributeListInterface">
+        <plugin name="hide_filterable_attribute" type="Magecan\HidePrice\Plugin\HidePrice" />
+    </type>
 </config>

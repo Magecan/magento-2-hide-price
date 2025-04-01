@@ -19,6 +19,21 @@ class HidePrice
         $this->scopeConfig = $scopeConfig;
     }
 
+	public function afterGetList(\Magento\Catalog\Model\Layer\FilterableAttributeListInterface $subject, $result)
+	{
+		if ($this->getShouldHidePrice() && $result instanceof \Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection) {
+			$items = $result->getItems();
+			foreach ($items as $key => $item) {
+				if ($item->getAttributeCode() == 'price') {
+					unset($items[$key]);
+					return $items;
+				}
+			}
+		}
+
+		return $result;
+	}
+
 	public function afterGetAttributesUsedForSortBy(\Magento\Catalog\Model\Config $subject, $result)
 	{
 		if ($this->getShouldHidePrice() && is_array($result)) {
